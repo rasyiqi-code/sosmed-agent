@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Persona {
+  id               String   @id @default(uuid())
+  whoAmI           String   @db.Text
+  businessProject  String
+  socialMediaGoal  String
+  coreValues       String   @db.Text
+  professionalism  Int      @default(80)
+  creativity       Int      @default(65)
+  enthusiasm       Int      @default(40)
+  isAutopilotEnabled Boolean  @default(true)
+  postsPerDay       Int      @default(4)
+  narrativeFocus     String?  @db.Text
+  updatedAt        DateTime @updatedAt
+  
+  // A Persona owns many campaigns, content, knowledge, and network contacts.
+  campaigns        Campaign[]
+  knowledgeAssets  KnowledgeAsset[]
+  contents         ContentNode[]
+  networkIntel     AudienceIntel[]
+  socialAccounts   SocialAccount[]
+}
+
+model SocialAccount {
+  id          String   @id @default(uuid())
+  personaId   String
+  platform    String   // Twitter, LinkedIn, Instagram
+  handle      String
+  avatarUrl   String?
+  accessToken String?  @db.Text
+  externalId  String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  persona     Persona  @relation(fields: [personaId], references: [id])
+}
+
+model Campaign {
+  id         String   @id @default(uuid())
+  personaId  String
+  name       String
+  objective  String
+  status     String   @default("Running") // Running, Paused, Completed
+  frequency  String   // e.g., "2/day"
+  progress   Int      @default(0)
+  reach      Int      @default(0)
+  createdAt  DateTime @default(now())
+  
+  persona    Persona  @relation(fields: [personaId], references: [id])
+  contents   ContentNode[]
+}
+
+model KnowledgeAsset {
+  id        String   @id @default(uuid())
+  personaId String
+  type      String   // link, note, doc
+  title     String
+  content   String?  @db.Text // Raw text or Preview
+  url       String?
+  size      String?
+  status    String   @default("Vectorized")
+  createdAt DateTime @default(now())
+
+  persona   Persona  @relation(fields: [personaId], references: [id])
+}
+
+model ContentNode {
+  id          String    @id @default(uuid())
+  personaId   String
+  campaignId  String?
+  platform    String    // Twitter, LinkedIn, Instagram
+  body        String    @db.Text
+  status      String    @default("Draft") // Draft, Queued, Published
+  scheduledFor DateTime?
+  publishedAt  DateTime?
+  isAutopilotGenerated Boolean @default(false)
+  externalId   String?   @unique
+  createdAt   DateTime @default(now())
+  
+  persona     Persona   @relation(fields: [personaId], references: [id])
+  campaign    Campaign? @relation(fields: [campaignId], references: [id])
+}
+
+model AudienceIntel {
+  id                String   @id @default(uuid())
+  personaId         String
+  name              String
+  title             String?
+  avatarUrl         String?
+  relationshipScore Int      @default(50)
+  status            String   // Nurturing, High Value, Watching
+  lastAction        String?
+  lastActionAt      DateTime?
+  
+  persona           Persona  @relation(fields: [personaId], references: [id])
+}
