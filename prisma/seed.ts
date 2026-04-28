@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient({
-  datasourceUrl: process.env.DATABASE_URL
-} as any) // Faking it if types are outdated
+import prisma from '../src/lib/prisma'
+
 
 async function main() {
   // 1. Persona

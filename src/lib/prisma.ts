@@ -1,12 +1,22 @@
 import { PrismaClient } from '@prisma/client';
-import { PrismaPg } from '@prisma/adapter-pg';
-import { Pool } from 'pg';
+import { PGlite } from '@electric-sql/pglite';
+import { PrismaPGlite } from 'pglite-prisma-adapter';
 
-const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-const adapter = new PrismaPg(pool);
+import path from 'path';
 
 const prismaClientSingleton = () => {
-  return new PrismaClient({ adapter });
+  const dbPath = path.resolve(process.cwd(), './prisma/data');
+  const pg = new PGlite(dbPath);
+  const adapter = new PrismaPGlite(pg);
+  
+  const client = new PrismaClient({ adapter });
+  
+  // Debug: Check tables
+  pg.query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'").then(res => {
+     console.log('[Prisma] Tables found:', res.rows.map(r => r.table_name));
+  }).catch(err => console.error('[Prisma] Debug error:', err));
+  
+  return client;
 }
 
 declare global {

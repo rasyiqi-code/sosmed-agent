@@ -16,12 +16,19 @@ import {
   Radio,
   Zap
 } from 'lucide-react';
-import { seedDatabase } from '../actions/seed';
 import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
+
 export default function Sidebar({ isAutopilotActive = false }: { isAutopilotActive?: boolean }) {
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const { t, i18n } = useTranslation();
-  const currentLang = i18n.language;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentLang = mounted ? i18n.language : 'en';
   
   const mainNav = [
     { name: t('nav.dashboard'), icon: LayoutGrid, href: '/' },

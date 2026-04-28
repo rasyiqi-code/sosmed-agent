@@ -5,6 +5,7 @@
     "": {
       "name": "sosmed-agent",
       "dependencies": {
+        "@electric-sql/pglite": "^0.4.4",
         "@prisma/adapter-pg": "7.4.1",
         "@prisma/client": "7.4.1",
         "@prisma/config": "7.4.1",
@@ -15,6 +16,8 @@
         "lucide-react": "^1.0.0",
         "next": "16.2.1",
         "pg": "^8.20.0",
+        "pg-embedded": "^0.2.3",
+        "pglite-prisma-adapter": "^0.7.2",
         "react": "19.2.4",
         "react-dom": "19.2.4",
         "react-i18next": "^16.6.3",
@@ -78,7 +81,7 @@
 
     "@chevrotain/utils": ["@chevrotain/utils@10.5.0", "", {}, "sha512-hBzuU5+JjB2cqNZyszkDHZgOSrUUT8V3dhgRl8Q9Gp6dAj/H5+KILGjbhDpc3Iy9qmqlm/akuOI2ut9VUtzJxQ=="],
 
-    "@electric-sql/pglite": ["@electric-sql/pglite@0.3.15", "", {}, "sha512-Cj++n1Mekf9ETfdc16TlDi+cDDQF0W7EcbyRHYOAeZdsAe8M/FJg18itDTSwyHfar2WIezawM9o0EKaRGVKygQ=="],
+    "@electric-sql/pglite": ["@electric-sql/pglite@0.4.4", "", {}, "sha512-g/6CWAJ4XOkObWCWAQ2IReZD8VvsDy3poRHSKvpRR2F96F8WJ3HVbjpso3gN7l0q6QPPgvxSSpl/qo5k8a7mkQ=="],
 
     "@electric-sql/pglite-socket": ["@electric-sql/pglite-socket@0.0.20", "", { "peerDependencies": { "@electric-sql/pglite": "0.3.15" }, "bin": { "pglite-server": "dist/scripts/server.js" } }, "sha512-J5nLGsicnD9wJHnno9r+DGxfcZWh+YJMCe0q/aCgtG6XOm9Z7fKeite8IZSNXgZeGltSigM9U/vAWZQWdgcSFg=="],
 
@@ -209,6 +212,26 @@
     "@nodelib/fs.walk": ["@nodelib/fs.walk@1.2.8", "", { "dependencies": { "@nodelib/fs.scandir": "2.1.5", "fastq": "^1.6.0" } }, "sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg=="],
 
     "@nolyfill/is-core-module": ["@nolyfill/is-core-module@1.0.39", "", {}, "sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA=="],
+
+    "@pg-ts/pg-embedded-android-arm-eabi": ["@pg-ts/pg-embedded-android-arm-eabi@0.2.3", "", { "os": "android", "cpu": "arm" }, "sha512-dX46MOiTysa+QHiYVNQMJnIlmpd2pwB+QXiH1V3X9yYbWzfNyKF4O71cin5KHsMimItld2Hm/McGcGnxNbnAfQ=="],
+
+    "@pg-ts/pg-embedded-android-arm64": ["@pg-ts/pg-embedded-android-arm64@0.2.3", "", { "os": "android", "cpu": "arm64" }, "sha512-NQ1hP2HsUbhL474YNHbP92rCusBcqS5KAqu+X9r5YFkCAKTGBtx5yJ5YUB9Di9VXsSPMGo0m70TMrNCjfeExtQ=="],
+
+    "@pg-ts/pg-embedded-darwin-arm64": ["@pg-ts/pg-embedded-darwin-arm64@0.2.3", "", { "os": "darwin", "cpu": "arm64" }, "sha512-KwWO9lc0H6Ntwb/C41tXeNnxPO8MGWEnK2yJnO7uBPl26RFtm6u1lHhhz5fqOeyz+VUqnDByDIFyEhNHImBN6Q=="],
+
+    "@pg-ts/pg-embedded-darwin-x64": ["@pg-ts/pg-embedded-darwin-x64@0.2.3", "", { "os": "darwin", "cpu": "x64" }, "sha512-ONPzwGIHmY/ydSlVrSM7V7xdhpd9de+SKq/QN10Iew5+saPDp/ZDFYgzZ84dudxmaZ3crdS6mgW/nsjbIpDTpg=="],
+
+    "@pg-ts/pg-embedded-linux-arm-gnueabihf": ["@pg-ts/pg-embedded-linux-arm-gnueabihf@0.2.3", "", { "os": "linux", "cpu": "arm" }, "sha512-JMHimgKNK0rx/8JjRBEa6JJSP9oxn6VenA5Y8aVEYwlTIUZgQfCCUUxsLv9uN5JeuWMpzaZych1OIjPwwz17LQ=="],
+
+    "@pg-ts/pg-embedded-linux-arm64-gnu": ["@pg-ts/pg-embedded-linux-arm64-gnu@0.2.3", "", { "os": "linux", "cpu": "arm64" }, "sha512-e6h93AHHhvFwrldDFktSUcdUhNgXVfk8zsGt0oraTTCs+lsCBMErarDqbG3Mf4DzhKP5HAQFTbe40JSv/UaWaQ=="],
+
+    "@pg-ts/pg-embedded-linux-arm64-musl": ["@pg-ts/pg-embedded-linux-arm64-musl@0.2.3", "", { "os": "linux", "cpu": "arm64" }, "sha512-IoJJdPeXFEgMZEdPUkcy9FHoefGCQI54ROyukNzBO+7tGk23W7KQut/uJzmu8RHFXbPWX0ePz0SxHhGQmUuYGg=="],
+
+    "@pg-ts/pg-embedded-linux-x64-gnu": ["@pg-ts/pg-embedded-linux-x64-gnu@0.2.3", "", { "os": "linux", "cpu": "x64" }, "sha512-YFSj14K6jsT8vgKU6viYMqYiNUAp5hOYiLNy1GpWevJWIymbLKbVTuZxpPE/2+GX3oAO9Glxj0jEStxGeOYuAQ=="],
+
+    "@pg-ts/pg-embedded-linux-x64-musl": ["@pg-ts/pg-embedded-linux-x64-musl@0.2.3", "", { "os": "linux", "cpu": "x64" }, "sha512-Rda4PDtF7O294XCM/uAlx1e9tOFWew51doSGXq7umgpwLpXItRM7G5t/ioXR0DRcEg1MDRtM5mmDTu1t3FND9w=="],
+
+    "@pg-ts/pg-embedded-win32-x64-msvc": ["@pg-ts/pg-embedded-win32-x64-msvc@0.2.3", "", { "os": "win32", "cpu": "x64" }, "sha512-gl73yOjq3YGuOO62BaFozOS+O5fVjrH/K118hdHrhoRijvGqwoSOPjy5M+xnpsrwdCkgkYMDPfMcdhw6dhQrzA=="],
 
     "@prisma/adapter-pg": ["@prisma/adapter-pg@7.4.1", "", { "dependencies": { "@prisma/driver-adapter-utils": "7.4.1", "pg": "^8.16.3", "postgres-array": "3.0.4" } }, "sha512-AH9XrqvSoBAaStn0Gm/sAnF97pDKz8uLpNmn51j1S9O9dhUva6LIxGdoDiiU9VXRIR89wAJXsvJSy+mK40m2xw=="],
 
@@ -784,6 +807,8 @@
 
     "pg-connection-string": ["pg-connection-string@2.12.0", "", {}, "sha512-U7qg+bpswf3Cs5xLzRqbXbQl85ng0mfSV/J0nnA31MCLgvEaAo7CIhmeyrmJpOr7o+zm0rXK+hNnT5l9RHkCkQ=="],
 
+    "pg-embedded": ["pg-embedded@0.2.3", "", { "optionalDependencies": { "@pg-ts/pg-embedded-android-arm-eabi": "0.2.3+pg18.0", "@pg-ts/pg-embedded-android-arm64": "0.2.3+pg18.0", "@pg-ts/pg-embedded-darwin-arm64": "0.2.3+pg18.0", "@pg-ts/pg-embedded-darwin-x64": "0.2.3+pg18.0", "@pg-ts/pg-embedded-linux-arm-gnueabihf": "0.2.3+pg18.0", "@pg-ts/pg-embedded-linux-arm64-gnu": "0.2.3+pg18.0", "@pg-ts/pg-embedded-linux-arm64-musl": "0.2.3+pg18.0", "@pg-ts/pg-embedded-linux-x64-gnu": "0.2.3+pg18.0", "@pg-ts/pg-embedded-linux-x64-musl": "0.2.3+pg18.0", "@pg-ts/pg-embedded-win32-x64-msvc": "0.2.3+pg18.0" } }, "sha512-3TVSDxlp/F4/xBUUcv8jF8zFQN8THrH7HTyV+lajI+/7NEZNMHn4KjmeiBG+e66olZJ0QGXDADqzkqk/6fBNJg=="],
+
     "pg-int8": ["pg-int8@1.0.1", "", {}, "sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw=="],
 
     "pg-pool": ["pg-pool@3.13.0", "", { "peerDependencies": { "pg": ">=8.0" } }, "sha512-gB+R+Xud1gLFuRD/QgOIgGOBE2KCQPaPwkzBBGC9oG69pHTkhQeIuejVIk3/cnDyX39av2AxomQiyPT13WKHQA=="],
@@ -791,6 +816,8 @@
     "pg-protocol": ["pg-protocol@1.13.0", "", {}, "sha512-zzdvXfS6v89r6v7OcFCHfHlyG/wvry1ALxZo4LqgUoy7W9xhBDMaqOuMiF3qEV45VqsN6rdlcehHrfDtlCPc8w=="],
 
     "pg-types": ["pg-types@2.2.0", "", { "dependencies": { "pg-int8": "1.0.1", "postgres-array": "~2.0.0", "postgres-bytea": "~1.0.0", "postgres-date": "~1.0.4", "postgres-interval": "^1.1.0" } }, "sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA=="],
+
+    "pglite-prisma-adapter": ["pglite-prisma-adapter@0.7.2", "", { "dependencies": { "@prisma/driver-adapter-utils": "7.2.0", "postgres-array": "^3.0.4" }, "peerDependencies": { "@electric-sql/pglite": ">=0.2.0", "@prisma/client": ">= 7.1.0" } }, "sha512-NqLXIUguFbgEHpIoyCvAbpEurbK+AUukiv96gIogVnNYWBdhAU0idfTXcJrsS7OdWenYa8QxEQM2ND1cTQrU4g=="],
 
     "pgpass": ["pgpass@1.0.5", "", { "dependencies": { "split2": "^4.1.0" } }, "sha512-FdW9r/jQZhSeohs1Z3sI1yxFQNFvMcnmfuj4WBMUTxOrAyLMaTcE1aAMBiTlbMNaXvBCQuVi0R7hd8udDSP7ug=="],
 
@@ -1002,6 +1029,8 @@
 
     "@eslint/eslintrc/globals": ["globals@14.0.0", "", {}, "sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ=="],
 
+    "@prisma/dev/@electric-sql/pglite": ["@electric-sql/pglite@0.3.15", "", {}, "sha512-Cj++n1Mekf9ETfdc16TlDi+cDDQF0W7EcbyRHYOAeZdsAe8M/FJg18itDTSwyHfar2WIezawM9o0EKaRGVKygQ=="],
+
     "@prisma/engines/@prisma/get-platform": ["@prisma/get-platform@7.4.1", "", { "dependencies": { "@prisma/debug": "7.4.1" } }, "sha512-kN4tmkQzlgm/KtE+jTNSYjsDxxe/5i6GApPI32BN9T0tlgsgSBtDJbjGBICttkAIjsh73dXf8raPKxO/2n2UUg=="],
 
     "@prisma/fetch-engine/@prisma/get-platform": ["@prisma/get-platform@7.4.1", "", { "dependencies": { "@prisma/debug": "7.4.1" } }, "sha512-kN4tmkQzlgm/KtE+jTNSYjsDxxe/5i6GApPI32BN9T0tlgsgSBtDJbjGBICttkAIjsh73dXf8raPKxO/2n2UUg=="],
@@ -1036,11 +1065,15 @@
 
     "pg-types/postgres-array": ["postgres-array@2.0.0", "", {}, "sha512-VpZrUqU5A69eQyW2c5CA1jtLecCsN2U/bD6VilrFDWq5+5UIEVO7nazS3TEcHf1zuPYO/sqGvUvW62g86RXZuA=="],
 
+    "pglite-prisma-adapter/@prisma/driver-adapter-utils": ["@prisma/driver-adapter-utils@7.2.0", "", { "dependencies": { "@prisma/debug": "7.2.0" } }, "sha512-gzrUcbI9VmHS24Uf+0+7DNzdIw7keglJsD5m/MHxQOU68OhGVzlphQRobLiDMn8CHNA2XN8uugwKjudVtnfMVQ=="],
+
     "proper-lockfile/signal-exit": ["signal-exit@3.0.7", "", {}, "sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ=="],
 
     "sharp/semver": ["semver@7.7.4", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-vFKC2IEtQnVhpT78h1Yp8wzwrf8CM+MzKMHGJZfBtzhZNycRFnXsHk6E5TxIkkMsgNS7mdX3AGB7x2QM2di4lA=="],
 
     "@typescript-eslint/typescript-estree/minimatch/brace-expansion": ["brace-expansion@5.0.4", "", { "dependencies": { "balanced-match": "^4.0.2" } }, "sha512-h+DEnpVvxmfVefa4jFbCf5HdH5YMDXRsmKflpf1pILZWRFlTbJpxeU55nJl4Smt5HQaGzg1o6RHFPJaOqnmBDg=="],
+
+    "pglite-prisma-adapter/@prisma/driver-adapter-utils/@prisma/debug": ["@prisma/debug@7.2.0", "", {}, "sha512-YSGTiSlBAVJPzX4ONZmMotL+ozJwQjRmZweQNIq/ER0tQJKJynNkRB3kyvt37eOfsbMCXk3gnLF6J9OJ4QWftw=="],
 
     "@typescript-eslint/typescript-estree/minimatch/brace-expansion/balanced-match": ["balanced-match@4.0.4", "", {}, "sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA=="],
   }
